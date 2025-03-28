@@ -23,6 +23,54 @@ public class TicketBooker {
     static Map<Integer, Passenger> passengers = new HashMap<>();//map of passeger's ids to passeger
 
     //book ticket
-    
+    public void bookTicket ( Passenger p, int berthInfo , String allotedBerth)
+    {
+        //assign the seat number and type of berth (L,U,M)
+        p.number = berthInfo;
+        p.alloted = allotedBerth;
+        //add passenger to the map
+        passengers.put (p.passengerId,p);
+        //add passenger id to the list of booked tickets
+        bookedTicketList.add(p.passengerId);
+        System.out.println("-------------------------Booked Successfully");
+    }
 
+    //adding to RAC
+    public void addToRAC(Passenger p , int racInfo, String allotedRAC)
+    {
+        //assign seat number and type(RAC)
+        p.number = racInfo;
+        p.alloted = allotedRAC;
+        //add passenger to the map
+        passengers.put(p.passengerId,p);
+        //add passenger id to the queue of RAC tickets
+        racList.add(p.passengerId);
+        //decrease available RAC tickets by 1
+        availableRacTickets--;
+        //remove the position that was alloted to the passenger
+        racPositions.remove(0);
+
+        System.out.println("-------------------------------added to RAC Successfully");
+    }
+
+    //adding to WL 
+    public void addToWaitingList(Passenger p , int waitingListInfo , String allotedWL)
+    {
+        //assign seat number and type(WL)
+        p.number = waitingListInfo;
+        p.alloted = allotedWL;
+        //add passenger to the map
+        passengers.put(p.passengerId,p);
+        //add passenger id to the queue of WL tickets
+        waitingList.add(p.passengerId);
+        //decrease available WL tickets by 1
+        availableWaitingList--;
+        //remove the position that was alloted to the passenger
+        waitingListPositions.remove(0);
+
+        System.out.println("------------------------ added to Waiting List Successfully");
+    }
+
+    //cancel ticket
+    
 }
