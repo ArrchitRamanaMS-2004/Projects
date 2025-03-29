@@ -89,6 +89,18 @@ public class Main {
         }
     }
 
+    //cancel ticket function
+    public static void cancelTicket(int id) {
+        TicketBooker booker = new TicketBooker();
+        //check if passenger id is valid 
+        if (!booker.passengers.containsKey(id)) {
+            System.out.println("passenger detail unknown");
+        }
+        else {
+            booker.cancelTicket(id);
+        }
+    }
+
     public static void main ( String [] args) {
         Scanner s = new Scanner(System.in);
         boolean loop = true;
@@ -114,8 +126,34 @@ public class Main {
                 //cancle ticket
                 case 2:
                 {
-
+                    //get passenger id to cancel 
+                    System.out.println("Enter passenger id to cancel : ");
+                    int id = s.nextInt();
+                    cancelTicket(id);
                 }
+                break;
+                //available ticket print
+                case 3:
+                {
+                    TicketBooker booker = new TicketBooker();
+                    booker.printAvailable();
+                }
+                break;
+                //occupied tickets print
+                case 4: 
+                {
+                    TicketBooker booker = new TicketBooker();
+                    booker.printPassengers();
+                }
+                break;
+                //exit
+                case 5: 
+                {
+                    loop = false;
+                }
+                break;
+                default:
+                break;
             }
         }
     }    
