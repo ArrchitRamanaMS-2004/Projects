@@ -1,3 +1,7 @@
+import java.math.*;
+import java.sql.Date;
+
+
 //Expense class representing individual expenses
 
 public class Expense {
@@ -6,18 +10,18 @@ public class Expense {
     private BigDecimal amount;
     private int categoryId;
     private ExpenseCategory category;
-    private Date date;
-    private String description;
+    private Date expense_date;
+    private String expense_description;
     
     public Expense() {}
     
-    public Expense(int expenseId, int userId, BigDecimal amount, int categoryId, Date date, String description) {
+    public Expense(int expenseId, int userId, BigDecimal amount, int categoryId, Date expense_date, String expense_description) {
         this.expenseId = expenseId;
         this.userId = userId;
         this.amount = amount;
         this.categoryId = categoryId;
-        this.date = date;
-        this.description = description;
+        this.expense_date = expense_date;
+        this.expense_description = expense_description;
     }
     
     // Getters and setters
@@ -36,23 +40,23 @@ public class Expense {
     public ExpenseCategory getCategory() { return category; }
     public void setCategory(ExpenseCategory category) { 
         this.category = category;
-        this.categoryId = category.getCategoryId();
     }
     
-    public Date getDate() { return date; }
-    public void setDate(Date date) { this.date = date; }
+    public Date getExpense_date() { return expense_date; }
+    public void setExpense_date(Date date) { this.expense_date = date; }
     
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getExpense_description() { return expense_description; }
+    public void setExpense_description(String description) { this.expense_description = description; }
     
     @Override
     public String toString() {
         return "Expense{" +
                 "expenseId=" + expenseId +
                 ", amount=" + amount +
-                ", category=" + (category != null ? category.getCategoryName() : "categoryId=" + categoryId) +
-                ", date=" + date +
-                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", categoryId=" + categoryId +
+                ", date=" + expense_date +
+                ", description='" + expense_description + '\'' +
                 '}';
     }
 }

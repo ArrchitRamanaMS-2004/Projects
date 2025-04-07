@@ -1,5 +1,4 @@
-import java.math.*;
-import java.sql.*;
+
 import java.util.*;
 
 // User class representing a system user
@@ -8,18 +7,15 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private List<Expense> expenses;
     
-    public User() {
-        this.expenses = new ArrayList<>();
-    }
+    
     
     public User(int userId, String username, String password, String email) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.expenses = new ArrayList<>();
+        
     }
     
     // Getters and setters
@@ -35,12 +31,6 @@ public class User {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
     
-    public List<Expense> getExpenses() { return expenses; }
-    public void setExpenses(List<Expense> expenses) { this.expenses = expenses; }
-    
-    public void addExpense(Expense expense) {
-        this.expenses.add(expense);
-    }
     
     @Override
     public String toString() {

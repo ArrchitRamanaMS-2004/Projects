@@ -1,3 +1,5 @@
+
+
 // ExpenseCategory class representing expense categories
 public class ExpenseCategory {
     private int categoryId;
